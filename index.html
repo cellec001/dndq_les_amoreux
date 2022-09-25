@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag N Drop</title>
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+
+  <body>
+  <div class="header" id="myHeader" style="text-align:center">
+  <audio controls>
+  <source src="Aldebert avec Claire Keim Les amoureux Clip officiel.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+  </audio>
+  </div>
+
+
+<div style="text-align:right"> 
+
+<table>
+  <tr>
+    <th><img src="the heavy.jpg" alt="The heavy" width="200" 
+     height="200"> </th>
+    <th><p style="text-align:right">Aldebert avec Claire Keim - Les amoureux</p></th>
+  </tr>
+    
+</table>
+
+
+</div>
+
+
+  
+  <div id="drag-n-drop-quiz"></div>
+    <script>
+      let questions = [];
+      questions[0] = [
+        '',
+        {
+          id: 1,
+          text: 'Souvent a l´école, on se moque de nous ',
+          dragOrder: 2,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Les enfants rigolent, ce sont des jaloux ',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Ma princesse a osé, quelle bien jolie scène ',
+          dragOrder: 1,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'Elle a déposé sa main dans la mienne ',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+        },
+      ];
+       questions[1] = [
+         '',
+        {
+          id: 1,
+          text: 'Nous faisons le mur, ce n´est pas de tout repos ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Je suis sans armure, elle est sans château ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Souvent dans la rue, on nous montre du doigt ',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'Les gens sont bourrus, mais les gens sont comme ça',
+          dragOrder: 2,
+          dropOrder: 4, // correct order after drop
+        },
+		];
+		
+	questions[2] = [
+         '',
+        {
+          id: 1,
+          text: 'Tout ça parce que tous les deux, ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'nous oublions d´être sages ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'On est amoureux,',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'et nous enjambons les nuages! ',
+          dragOrder: 2,
+          dropOrder: 4, // correct order after drop
+        },
+		];
+		
+		questions[3] = [
+         '',
+        {
+          id: 1,
+          text: 'Nous avons fugué entre deux paragraphes ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Nous avons largué les leçons d´orthographe ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Tout par dessus bord, les dictées, les problèmes ',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'On est tombé d´accord, pour se dire je t´aime. ',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+      ];
+	  questions[4] = [
+        '',
+        {
+          id: 1,
+          text: 'Ici les oiseaux sont dans la confidence ',
+          dragOrder: 2,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Quand on est en haut, plus rien n´a d´importance ',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Au premier baiser, plus rien ne bouge ',
+          dragOrder: 1,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'J´ai senti passer, mes joues de roses à rouges ',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+        },
+      ];
+	  questions[5] = [
+         '',
+        {
+          id: 1,
+          text: 'Tout ça parce que tous les deux, ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'nous oublions d´être sages ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'On est amoureux,',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'et nous enjambons les nuages! ',
+          dragOrder: 2,
+          dropOrder: 4, // correct order after drop
+        },
+		];
+	 questions[6] = [
+         '',
+        {
+          id: 1,
+          text: 'Selon les vents, si ça nous sonne ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Quand nous serons de grandes personnes ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Nous redescendrons sur Terre ',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+      ];
+	  questions[7] = [
+         '',
+        {
+          id: 1,
+          text: 'Et quand les archers sauront viser ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Le cœur de tout les écoliers ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Nous viendrons vous chanter ces vers ',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+      ];
+	  questions[8] = [
+         '',
+        {
+          id: 1,
+          text: 'Levez bien la tête! ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Ouvrez grand les yeux! ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Vous verrez peut être ',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'les enfants amoureux. ',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+      	  
+      ];
+	  questions[9] = [
+         '',
+        {
+          id: 1,
+          text: 'Flirter sur les stratus, ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'quelle sensation étrange. ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Flâner sur les nimbus, ',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'deux apprentis-anges. ',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+		];
+      questions[10] = [
+         '',
+        {
+          id: 1,
+          text: 'Tout ça parce que tous les deux, ',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'nous oublions d´être sages ',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'On est amoureux,',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'et nous enjambons les nuages! ',
+          dragOrder: 2,
+          dropOrder: 4, // correct order after drop
+        },
+		];	  
+	  questions[11] = [
+         '',
+        {
+          id: 1,
+          text: 'Nous oublions d´être sages,',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'et nous enjambons les nuages!',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Nous oublions d´être sages,',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'et nous enjambons les nuages!',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+      	  
+      ];
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
